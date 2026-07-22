@@ -123,15 +123,15 @@
       <div class="estatisticas">
         <div class="estatistica">
           <h3 class="valor__estatistica">100</h3>
-          <p class="clientes__estatisticas">clientes fixas por mês</p>
+          <p class="clientes__estatisticas">Fixed monthly clients</p>
         </div>
         <div class="estatistica">
           <h3 class="valor__estatistica">+2.000</h3>
-          <p class="clientes__estatisticas">clientes atendidas por ano</p>
+          <p class="clientes__estatisticas">customers served per year</p>
         </div>
         <div class="estatistica">
           <h3 class="valor__estatistica">+20</h3>
-          <p class="clientes__estatisticas">serviços ofertados</p>
+          <p class="clientes__estatisticas">services offered</p>
         </div>
       </div>
     </section>
