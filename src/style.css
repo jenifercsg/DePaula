@@ -221,9 +221,16 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  background: white;
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 9999;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .hamburger-menu {
@@ -1168,6 +1175,11 @@ body {
     display: flex;
   }
 
+  .landing-page {
+    padding-top: 70px;
+  }
+}
+
   .navbar {
     display: none;
   }
@@ -1248,7 +1260,6 @@ body {
   .expertise-grid {
     grid-template-columns: 1fr;
   }
-}
 
 @media (max-width: 576px) {
   .title {
