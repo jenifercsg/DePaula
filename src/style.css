@@ -82,6 +82,107 @@ body {
   text-decoration-color: black;
 }
 
+/* OPÇÕES DE CONTATO */
+
+.contact-options {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  z-index: 9999;
+}
+
+.contact-box {
+  position: relative;
+
+  width: 90%;
+  max-width: 400px;
+
+  padding: 30px;
+
+  background: #fff;
+  border-radius: 12px;
+
+  text-align: center;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.contact-box h3 {
+  margin-bottom: 10px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: #333;
+}
+
+.contact-box p {
+  margin-bottom: 25px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+
+.close-contact {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+
+  border: none;
+  background: none;
+
+  font-size: 28px;
+  color: #333;
+
+  cursor: pointer;
+}
+
+.contact-option {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 50px;
+
+  margin-top: 12px;
+
+  border-radius: 6px;
+
+  text-decoration: none;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+
+  box-sizing: border-box;
+
+  transition: 0.3s ease;
+}
+
+.whatsapp {
+  background-color: #25d366;
+  color: #fff;
+}
+
+.sms {
+  background-color: #f3c333;
+  color: #fff;
+}
+
+.contact-option:hover {
+  opacity: 0.85;
+}
+
 /* BOTÕES cta */
 .cta-button {
   display: flex;
@@ -993,7 +1094,7 @@ body {
 
 @media (max-width: 992px) {
   .navbar {
-    padding: 105px 20px;
+    padding: 15px 20px;
   }
 
   .nav-links {

@@ -10,15 +10,30 @@
           <li><a href="#servicos">Works</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        <button class="cta-button" @click="showContactOptions = true">GET A FREE QUOTE</button>
+      </nav>
+      <div v-if="showContactOptions" class="contact-options">
+        <div class="contact-box">
+          <button class="close-contact" @click="showContactOptions = false" aria-label="Close">
+            ×
+          </button>
+
+          <h3>How would you like to contact us?</h3>
+
+          <p>Choose your preferred way to request a free quote.</p>
+
           <a
             href="https://wa.me/18623441728"
             target="_blank"
             rel="noopener noreferrer"
-            class="cta-button"
+            class="contact-option whatsapp"
           >
-            GET A FREE QUOTE
+            WhatsApp
           </a>
-      </nav>
+
+          <a href="sms:+18623441728" class="contact-option sms"> Text Message </a>
+        </div>
+      </div>
       <nav id="hamburger-nav">
         <img src="../assets/imagens/LogodePaula.png" alt="logo" class="logo-perfil" />
         <div class="hamburger-menu">
@@ -33,18 +48,35 @@
             <li><a href="#servicos" @click="toggleMenu">WORKS</a></li>
             <li><a href="#contact" @click="toggleMenu">CONTACT</a></li>
             <li>
-              <a
-                href="https://wa.me/18623441728?text=Hello!%20I%20would%20like%20to%20get%20a%20free%20quote."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="cta-button-mobile"
-              >
+              <button class="cta-button-mobile" @click="openContactOptions">
                 GET A FREE QUOTE
-              </a>
+              </button>
             </li>
           </div>
         </div>
       </nav>
+      <div v-if="showContactOptions" class="contact-options">
+        <div class="contact-box">
+          <button class="close-contact" @click="showContactOptions = false" aria-label="Close">
+            ×
+          </button>
+
+          <h3>How would you like to contact us?</h3>
+
+          <p>Choose your preferred way to request a free quote.</p>
+
+          <a
+            href="https://wa.me/18623441728?text=Hello!%20I%20would%20like%20to%20get%20a%20free%20quote."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-option whatsapp"
+          >
+            WhatsApp
+          </a>
+
+          <a href="sms:+18623441728" class="contact-option sms"> Text Message </a>
+        </div>
+      </div>
       <section class="hero">
         <div class="hero-text">
           <p class="section__text__p1">DE PAULA CORE DRILLING SERVICES</p>
@@ -117,17 +149,15 @@
     </section>
     <section id="classificacao" class="comentario">
       <div class="comentario-container">
-
-    <button
-      class="seta-comentario esquerda"
-      @click="comentarioAnterior"
-      aria-label="Comentário anterior"
-    >
-      <ChevronLeft />
-    </button>
+        <button
+          class="seta-comentario esquerda"
+          @click="comentarioAnterior"
+          aria-label="Comentário anterior"
+        >
+          <ChevronLeft />
+        </button>
 
         <div class="comentario-topo">
-
           <img
             :src="comentarios[comentarioAtual].foto"
             alt="foto do perfil de comentário"
@@ -135,16 +165,9 @@
           />
 
           <div class="comentario-textos">
+            <img src="../assets/imagens/stars.png" alt="Estrelas" class="estrela" />
 
-            <img
-              src="../assets/imagens/stars.png"
-              alt="Estrelas"
-              class="estrela"
-            />
-
-            <p class="text__comentario">
-              “{{ comentarios[comentarioAtual].texto }}”
-            </p>
+            <p class="text__comentario">“{{ comentarios[comentarioAtual].texto }}”</p>
 
             <p class="nome-comentarista">
               {{ comentarios[comentarioAtual].nome }}
@@ -152,18 +175,16 @@
                 {{ comentarios[comentarioAtual].empresa }}
               </span>
             </p>
-
           </div>
         </div>
 
-    <button
-      class="seta-comentario direita"
-      @click="proximoComentario"
-      aria-label="Próximo comentário"
-    >
-      <ChevronRight />
-    </button>
-
+        <button
+          class="seta-comentario direita"
+          @click="proximoComentario"
+          aria-label="Próximo comentário"
+        >
+          <ChevronRight />
+        </button>
       </div>
     </section>
     <section id="servicos" class="nossos__servicos">
@@ -173,7 +194,7 @@
         <div class="cards-servicos">
           <div class="card-servico">
             <h4 class="titulo">CONCRETE CUTTING</h4>
-            <video :src="video1" autoplay muted loop playsinline class="video-card"></video>
+            <video :src="video2" autoplay muted loop playsinline class="video-card"></video>
             <p class="descricao">
               Concrete Cutting & Sawing High-powered precision cutting for horizontal and vertical
               concrete structures.
@@ -182,7 +203,7 @@
           <div class="card-servico">
             <h4 class="titulo">Core Drilling</h4>
 
-            <video :src="video2" autoplay muted loop playsinline class="video-card"></video>
+            <video :src="video1" autoplay muted loop playsinline class="video-card"></video>
             <p class="descricao">
               Core Drilling Clean, precise, and dust-controlled circular openings through reinforced
               concrete, brick, block, and asphalt.
@@ -278,14 +299,7 @@
             efficiently, and professionally.
           </p>
 
-                        <a
-                href="https://wa.me/18623441728?text=Hello!%20I%20would%20like%20to%20get%20a%20free%20quote."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="footer-button"
-              >
-                GET A FREE QUOTE
-              </a>
+          <button class="footer-button" @click="showContactOptions = true">GET A FREE QUOTE</button>
         </div>
 
         <div class="footer-middle">
@@ -333,7 +347,7 @@ import { ref } from 'vue'
 import video1 from '../assets/videos/video1.mp4'
 import video2 from '../assets/videos/video2.mp4'
 
-import { ChevronLeft, ChevronRight, Check  } from 'lucide-vue-next'
+import { ChevronLeft, ChevronRight, Check } from 'lucide-vue-next'
 
 import modelo from '../assets/imagens/modelo.png'
 import modelo2 from '../assets/imagens/modelo2.png'
@@ -341,9 +355,15 @@ import modelo3 from '../assets/imagens/modelo3.png'
 import modelo4 from '../assets/imagens/modelo4.png'
 
 const isMenuOpen = ref(false)
+const showContactOptions = ref(false)
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
+}
+
+const openContactOptions = () => {
+  showContactOptions.value = true
+  toggleMenu()
 }
 
 const comentarioAtual = ref(0)
@@ -373,7 +393,7 @@ const comentarios = ref([
     empresa: 'Foreman RIT Plumbing contractor',
   },
 
-    {
+  {
     foto: modelo4,
     texto:
       'Having DePaula Services handle our core drilling makes our work much more efficient. It allows my crew to stay focused on plumbing while knowing the core drilling is in good hands. They’re fast, reliable, and always get the job done right',
@@ -382,17 +402,12 @@ const comentarios = ref([
   },
 ])
 
-
 function proximoComentario() {
-  comentarioAtual.value =
-    (comentarioAtual.value + 1) % comentarios.value.length
+  comentarioAtual.value = (comentarioAtual.value + 1) % comentarios.value.length
 }
 
 function comentarioAnterior() {
   comentarioAtual.value =
-    (comentarioAtual.value - 1 + comentarios.value.length) %
-    comentarios.value.length
+    (comentarioAtual.value - 1 + comentarios.value.length) % comentarios.value.length
 }
-
-
 </script>
