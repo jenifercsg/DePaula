@@ -1187,7 +1187,6 @@ body {
   .landing-page {
     padding-top: 70px;
   }
-}
 
   .navbar {
     display: none;
@@ -1269,6 +1268,7 @@ body {
   .expertise-grid {
     grid-template-columns: 1fr;
   }
+}
 
 @media (max-width: 576px) {
   .title {
@@ -1316,3 +1316,4 @@ body {
     font-size: 10px;
   }
 }
+
