@@ -591,8 +591,17 @@ body {
 .text__equipe {
   color: #f3c333;
   font-weight: 900;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   text-transform: uppercase;
+}
+
+.feedback {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f3c333;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
 }
 
 .text__equipe__descricao {
@@ -776,7 +785,7 @@ body {
 .text__servico {
   color: #f3c333;
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-size: 1.8rem;
   font-weight: 600;
   letter-spacing: 1.625px;
   text-transform: uppercase;
@@ -852,7 +861,7 @@ body {
   display: block;
   text-align: center;
   color: #d4af37;
-  font-size: 15px;
+  font-size: 1.4rem;
   letter-spacing: 3px;
   font-weight: 600;
   margin-bottom: 15px;

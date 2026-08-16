@@ -149,6 +149,8 @@
     </section>
     <section id="classificacao" class="comentario">
       <div class="comentario-container">
+        <h2 class="feedback">FEEDBACKS</h2>
+
         <button
           class="seta-comentario esquerda"
           @click="comentarioAnterior"
