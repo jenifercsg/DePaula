@@ -5,12 +5,19 @@
         <img src="../assets/imagens/LogodePaula.png" alt="logo" class="logo-perfil" />
 
         <ul class="nav-links">
-          <li><a href="#about">Home page</a></li>
-          <li><a href="#work">Works</a></li>
+          <li><a href="#hero">Home page</a></li>
           <li><a href="#about">About Us</a></li>
+          <li><a href="#servicos">Works</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <button class="cta-button">GET A FREE QUOTE</button>
+          <a
+            href="https://wa.me/18623441728"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-button"
+          >
+            GET A FREE QUOTE
+          </a>
       </nav>
       <nav id="hamburger-nav">
         <img src="../assets/imagens/LogodePaula.png" alt="logo" class="logo-perfil" />
@@ -21,12 +28,19 @@
             <span></span>
           </div>
           <div class="menu-links" :class="{ open: isMenuOpen }">
-            <li><a href="#about" @click="toggleMenu">HOME PAGE</a></li>
-            <li><a href="#work" @click="toggleMenu">WORKS</a></li>
+            <li><a href="#hero" @click="toggleMenu">HOME PAGE</a></li>
             <li><a href="#about" @click="toggleMenu">ABOUT US</a></li>
+            <li><a href="#servicos" @click="toggleMenu">WORKS</a></li>
             <li><a href="#contact" @click="toggleMenu">CONTACT</a></li>
             <li>
-              <a href="tel:+18623441728" class="cta-button-mobile"> GET A FREE QUOTE </a>
+              <a
+                href="https://wa.me/18623441728?text=Hello!%20I%20would%20like%20to%20get%20a%20free%20quote."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-button-mobile"
+              >
+                GET A FREE QUOTE
+              </a>
             </li>
           </div>
         </div>
@@ -103,36 +117,53 @@
     </section>
     <section id="classificacao" class="comentario">
       <div class="comentario-container">
+
+    <button
+      class="seta-comentario esquerda"
+      @click="comentarioAnterior"
+      aria-label="Comentário anterior"
+    >
+      <ChevronLeft />
+    </button>
+
         <div class="comentario-topo">
+
           <img
-            src="../assets/imagens/modelo.png"
+            :src="comentarios[comentarioAtual].foto"
             alt="foto do perfil de comentário"
             class="comentarista"
           />
+
           <div class="comentario-textos">
-            <img src="../assets/imagens/stars.png" alt="Estrelas" class="estrela" />
+
+            <img
+              src="../assets/imagens/stars.png"
+              alt="Estrelas"
+              class="estrela"
+            />
+
             <p class="text__comentario">
-              “Very punctual, fairly priced, and the quality of the work exceeded my expectations!”
+              “{{ comentarios[comentarioAtual].texto }}”
             </p>
+
             <p class="nome-comentarista">
-              Magno Bennett <span class="cargo">CEO of Bennett Constructs</span>
+              {{ comentarios[comentarioAtual].nome }}
+              <span class="cargo">
+                {{ comentarios[comentarioAtual].empresa }}
+              </span>
             </p>
+
           </div>
         </div>
-      </div>
-      <div class="estatisticas">
-        <div class="estatistica">
-          <h3 class="valor__estatistica">100</h3>
-          <p class="clientes__estatisticas">Fixed monthly clients</p>
-        </div>
-        <div class="estatistica">
-          <h3 class="valor__estatistica">+2.000</h3>
-          <p class="clientes__estatisticas">customers served per year</p>
-        </div>
-        <div class="estatistica">
-          <h3 class="valor__estatistica">+20</h3>
-          <p class="clientes__estatisticas">services offered</p>
-        </div>
+
+    <button
+      class="seta-comentario direita"
+      @click="proximoComentario"
+      aria-label="Próximo comentário"
+    >
+      <ChevronRight />
+    </button>
+
       </div>
     </section>
     <section id="servicos" class="nossos__servicos">
@@ -183,10 +214,25 @@
           </p>
 
           <ul>
-            <li>✔ Plumbing & drainage lines</li>
-            <li>✔ Electrical conduits & cabling</li>
-            <li>✔ HVAC ductwork & ventilation</li>
-            <li>✔ Structural anchoring & concrete sampling</li>
+            <li>
+              <Check class="check-icon" />
+              Plumbing & drainage lines
+            </li>
+
+            <li>
+              <Check class="check-icon" />
+              Electrical conduits & cabling
+            </li>
+
+            <li>
+              <Check class="check-icon" />
+              HVAC ductwork & ventilation
+            </li>
+
+            <li>
+              <Check class="check-icon" />
+              Structural anchoring & concrete sampling
+            </li>
           </ul>
         </div>
 
@@ -196,10 +242,25 @@
           <p>High-powered precision cutting with advanced diamond blade technology.</p>
 
           <ul>
-            <li>✔ Slab & Flat Sawing</li>
-            <li>✔ Wall Sawing</li>
-            <li>✔ Demolition & structural modifications</li>
-            <li>✔ Full slurry vacuuming & cleanup included</li>
+            <li>
+              <Check class="check-icon" />
+              Slab & Flat Sawing
+            </li>
+
+            <li>
+              <Check class="check-icon" />
+              Wall Sawing
+            </li>
+
+            <li>
+              <Check class="check-icon" />
+              Demolition & structural modifications
+            </li>
+
+            <li>
+              <Check class="check-icon" />
+              Full slurry vacuuming & cleanup included
+            </li>
           </ul>
         </div>
       </div>
@@ -217,15 +278,27 @@
             efficiently, and professionally.
           </p>
 
-          <a href="tel:+18623441728" class="footer-button"> GET A FREE QUOTE </a>
+                        <a
+                href="https://wa.me/18623441728?text=Hello!%20I%20would%20like%20to%20get%20a%20free%20quote."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer-button"
+              >
+                GET A FREE QUOTE
+              </a>
         </div>
 
         <div class="footer-middle">
           <h4>Contact Us</h4>
 
-          <a href="tel:+18623441728" class="contact-link">
+          <a
+            href="https://wa.me/18623441728"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link"
+          >
             <img src="../assets/imagens/icon_whats.png" alt="WhatsApp" />
-            <span>(+1) 86234-41728</span>
+            <span>(+1) 862 344-1728</span>
           </a>
 
           <a href="mailto:depaulaservicesllc@outlook.com" class="contact-link">
@@ -260,9 +333,66 @@ import { ref } from 'vue'
 import video1 from '../assets/videos/video1.mp4'
 import video2 from '../assets/videos/video2.mp4'
 
+import { ChevronLeft, ChevronRight, Check  } from 'lucide-vue-next'
+
+import modelo from '../assets/imagens/modelo.png'
+import modelo2 from '../assets/imagens/modelo2.png'
+import modelo3 from '../assets/imagens/modelo3.png'
+import modelo4 from '../assets/imagens/modelo4.png'
+
 const isMenuOpen = ref(false)
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
+
+const comentarioAtual = ref(0)
+
+const comentarios = ref([
+  {
+    foto: modelo,
+    texto:
+      'I’ve worked with countless core drilling contractors throughout my career, and DePaula Services is truly different. Their commitment to quality, professionalism, and reliability is unmatched. They’re the kind of company you can trust to get the job done right every time.',
+    nome: 'Piter Goes',
+    empresa: 'Goes - Plumbing & Gas Piping',
+  },
+
+  {
+    foto: modelo2,
+    texto:
+      'Whenever DePaula Services is on one of our projects, I know the job will be done right. They prioritize safety, deliver outstanding quality, follow all job site requirements, and always complete the work exactly as requested. Fast, precise, and reliable.',
+    nome: 'Jeffrey Muniz',
+    empresa: 'Project Manager',
+  },
+
+  {
+    foto: modelo3,
+    texto:
+      'Having DePaula Services handle our core drilling makes our work much more efficient. It allows my crew to stay focused on plumbing while knowing the core drilling is in good hands. They’re fast, reliable, and always get the job done right',
+    nome: 'Afonso Garcia',
+    empresa: 'Foreman RIT Plumbing contractor',
+  },
+
+    {
+    foto: modelo4,
+    texto:
+      'Having DePaula Services handle our core drilling makes our work much more efficient. It allows my crew to stay focused on plumbing while knowing the core drilling is in good hands. They’re fast, reliable, and always get the job done right',
+    nome: 'Impacto core drilling',
+    empresa: 'Impacto core drilling',
+  },
+])
+
+
+function proximoComentario() {
+  comentarioAtual.value =
+    (comentarioAtual.value + 1) % comentarios.value.length
+}
+
+function comentarioAnterior() {
+  comentarioAtual.value =
+    (comentarioAtual.value - 1 + comentarios.value.length) %
+    comentarios.value.length
+}
+
+
 </script>

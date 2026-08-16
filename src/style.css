@@ -84,26 +84,37 @@ body {
 
 /* BOTÕES cta */
 .cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background-color: #f3c333;
   color: #fff;
   border: none;
   border-radius: 6px;
+
   cursor: pointer;
   transition: background 0.3s ease;
+
   width: 242px;
   height: 50px;
   flex-shrink: 0;
+
   text-align: center;
+  text-decoration: none;
+
+  font-family: inherit;
   font-size: 17px;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
 
 .cta-button:hover {
-  background-color: #e2b422;
+  background-color: #e0b52d;
 }
 
-/* Hamburger Menu */
+/* HAMBURGER MENU */
+
 #hamburger-nav {
   display: none;
   justify-content: space-between;
@@ -139,39 +150,117 @@ body {
   transform-origin: center;
 }
 
+/* MENU */
+
 .menu-links {
   position: absolute;
   top: 100%;
   right: 1rem;
+
   background-color: white;
-  background-size: cover;
-  width: 200px;
+
+  width: 220px;
   max-height: 0;
+
   overflow: hidden;
+
   transition: all 0.3s ease-in-out;
+
   z-index: 1000;
+
   font-family: 'Montserrat', sans-serif;
+
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  padding: 0;
 }
 
 .menu-links.open {
-  max-height: 300px;
+  max-height: 350px;
   padding: 10px 0;
 }
 
 .menu-links li {
   list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-.menu-links a {
+/* LINKS NORMAIS DO MENU */
+
+.menu-links > li > a:not(.cta-button-mobile) {
   display: block;
+
+  width: 100%;
+  box-sizing: border-box;
+
   padding: 10px;
+
   text-align: center;
+
   font-size: 1.2rem;
+
   color: black;
+
   text-decoration: none;
+
   transition: all 0.3s ease-in-out;
 }
+
+.menu-links > li > a:not(.cta-button-mobile):hover {
+  color: #f3c333;
+}
+
+/* BOTÃO GET A FREE QUOTE */
+
+.cta-button-mobile {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  width: 90%;
+  height: 50px;
+
+  margin: 15px auto;
+  padding: 0 10px;
+
+  background-color: #f3c333;
+  color: white;
+
+  border: 2px solid #f3c333;
+  border-radius: 6px;
+
+  text-decoration: none;
+  text-align: center;
+
+  font-family: inherit;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.cta-button-mobile:hover {
+  background-color: transparent;
+  color: #f3c333;
+}
+
+.cta-button-mobile:active {
+  transform: scale(0.97);
+}
+
+/* ANIMAÇÃO DO HAMBURGER */
 
 .hamburger-icon.open span:first-child {
   transform: rotate(45deg) translate(5px, 5px);
@@ -183,15 +272,6 @@ body {
 
 .hamburger-icon.open span:last-child {
   transform: rotate(-45deg) translate(6px, -6px);
-}
-
-.cta-button-mobile {
-  background-color: #e2b422;
-  color: white;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  display: block;
 }
 
 /*HERO & APRESENTAÇÃO*/
@@ -451,9 +531,9 @@ body {
 
 .comentario-topo {
   display: flex;
-  gap: 1.5rem;
   align-items: flex-start;
-  flex-wrap: wrap;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .comentarista {
@@ -462,6 +542,7 @@ body {
   flex-shrink: 0;
   object-fit: cover;
   border-radius: 50%;
+  margin-top: 70px;
 }
 
 .comentario-textos {
@@ -498,9 +579,45 @@ body {
 .cargo {
   color: #f3c333;
   font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 400;
   opacity: 0.7;
+}
+
+/* SETAS DOS COMENTÁRIOS */
+.comentario-container {
+  position: relative;
+}
+
+.seta-comentario {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 10;
+}
+
+.seta-comentario svg {
+  width: 36px;
+  height: 36px;
+  stroke: #f2cf0b;
+  stroke-width: 1.5;
+  transition: 0.2s;
+}
+
+.seta-comentario:hover svg {
+  transform: scale(1.15);
+}
+
+.seta-comentario.esquerda {
+  left: -70px;
+}
+
+.seta-comentario.direita {
+ right: -70px;
 }
 
 /* Estatísticas */
@@ -667,6 +784,24 @@ body {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
 }
 
+.check-icon {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+  stroke: #f2cf0b;
+}
+
+.service-card li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 16px;
+}
+
+
 .service-card h3 {
   font-size: 24px;
   margin-bottom: 15px;
@@ -686,13 +821,7 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.service-card li {
-  margin-bottom: 12px;
-  color: #333;
-  font-size: 16px;
-}
-
-/*FOOTER (CORRIGIDO PARA NÃO QUEBRAR LARGURA/ALTURA)*/
+/*FOOTER */
 .footer {
   background-color: #8d8d8c;
   padding: 60px 20px 20px;
@@ -864,7 +993,7 @@ body {
 
 @media (max-width: 992px) {
   .navbar {
-    padding: 15px 20px;
+    padding: 105px 20px;
   }
 
   .nav-links {
@@ -874,6 +1003,17 @@ body {
 
   .title {
     font-size: 2.2rem;
+  }
+
+  /* COMENTÁRIOS */
+  .comentario {
+    position: relative;
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .comentario-container {
+    position: relative;
   }
 
   .comentario-topo {
@@ -892,6 +1032,33 @@ body {
 
   .nome-comentarista {
     justify-content: center;
+  }
+
+  /* SETAS */
+  .seta-comentario {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    padding: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .seta-comentario.esquerda {
+    left: 0;
+  }
+
+  .seta-comentario.direita {
+    right: 0;
+  }
+
+  .seta-comentario svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
   }
 }
 
@@ -934,7 +1101,7 @@ body {
     height: 250px;
   }
 
-  /* Footer responsivo corrigido sem overflow-x */
+  /* Footer responsivo */
   .footer-container {
     flex-direction: column;
     text-align: center;
